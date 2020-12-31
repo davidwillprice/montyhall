@@ -1,16 +1,19 @@
 let NoOfDoors = 3;
 let doors = {
-  redDoor: {
-    color: 'red',
-    prize: 'goat',
+  doorOne: {
+    no: 'one',
+    prize: 'empty',
+    name: 'first'
   },
-  blueDoor: {
-    color: 'blue',
-    prize: 'goat',
+  doorTwo: {
+    no: 'two',
+    prize: 'empty',
+    name: 'second'
   },
-  greenDoor: {
-    color: 'green',
-    prize: 'goat',
+  doorThree: {
+    no: 'three',
+    prize: 'empty',
+    name: 'third'
   },
 };
 let stats = {
@@ -43,7 +46,7 @@ function init() {
 
 function addDoorsEventListeners() {
   document.querySelectorAll('.monty-hall__door').forEach(door =>
-    door.addEventListener("click", doorClicked)
+    door.addEventListener("click", doorClicked, false)
   );
 }
 function addReplayEventListener() {
@@ -54,64 +57,64 @@ function assignGold() {
   //Randomly assign one of the doors a gold
   let randomDoorNo = (Math.floor(Math.random() * NoOfDoors)) + 1;
   if (randomDoorNo == 1) {
-    doors.redDoor.prize = 'gold';
+    doors.doorOne.prize = 'gold';
   } else if (randomDoorNo == 2) {
-    doors.blueDoor.prize = 'gold';
+    doors.doorTwo.prize = 'gold';
   } else {
-    doors.greenDoor.prize = 'gold';
+    doors.doorThree.prize = 'gold';
   }
 }
 
 function doorClicked(e) {
   //Identify the clicked doors' object
-  let chosenDoor = doors[e.target.getAttribute('data-id') + 'Door'];
+  let chosenDoor = doors['door'+ (e.currentTarget.getAttribute('data-id'))];
   //Add a property to the data knows it has been selected
+  console.log(chosenDoor)
   chosenDoor.selected = true;
   //Add keep text to selected door
-  document.querySelector(`#monty-hall__door--${chosenDoor.color} .monty-hall__door-btn-con`).innerHTML="<p>Keep</p>";
+  document.querySelector(`#monty-hall__door--${chosenDoor.no} .monty-hall__door-btn-con`).innerHTML="<button>Keep</button>";
   //Add keep event listener to selected door
-  document.getElementById(`monty-hall__door--${chosenDoor.color}`).addEventListener("click", keepClicked);
+  document.getElementById(`monty-hall__door--${chosenDoor.no}`).addEventListener("click", keepClicked);
   
-  //Find a spare goat whose door can be opened
-  const goatDoor = findSpareGoat();
+  //Find an empty door which can be opened
+  const emptyDoor = findSpareEmpty();
   //Set the door to open in the data
-  goatDoor.opened = true;
-  //Show the spare goat door in UI
-  document.getElementById('monty-hall__door--' + goatDoor.color).classList.toggle('monty-hall__door--goat')
-
+  emptyDoor.opened = true;
+  //Show the spare empty door in UI
+  document.getElementById('monty-hall__door--' + emptyDoor.no).classList.toggle('monty-hall__door--empty')
+  document.getElementById('monty-hall__door--' + emptyDoor.no).classList.toggle('monty-hall__door--unselectable')
   //Find the door you can switch to
   const swapDoor = findSwapDoor();
   //Add keep text to selected door
-  document.querySelector(`#monty-hall__door--${swapDoor.color} .monty-hall__door-btn-con`).innerHTML="<p>Swap</p>";
+  document.querySelector(`#monty-hall__door--${swapDoor.no} .monty-hall__door-btn-con`).innerHTML="<button>Swap</button>";
   //Add keep event listener to selected door
-  document.getElementById(`monty-hall__door--${swapDoor.color}`).addEventListener("click", swapClicked);
+  document.getElementById(`monty-hall__door--${swapDoor.no}`).addEventListener("click", swapClicked);
 
   //Remove all the door clicked event listeners
   removeAllDoorEventList();
   //Adjust message to reflect new state
-  document.getElementById('monty-hall__message').innerHTML = `<p>You have selected the ${chosenDoor.color} door.<br>
-  Monty reveals the ${goatDoor.color} door had a goat.<br>
-  Would you like to keep the ${chosenDoor.color} door or swap to the ${swapDoor.color} door?</p>`
+  document.getElementById('monty-hall__message').innerHTML = `<p>Monty reveals the ${emptyDoor.name} door was&nbsp;empty.<br>
+  Would you like to keep the ${chosenDoor.name} door or swap to the ${swapDoor.name}&nbsp;door?</p>`
 }
 function removeAllDoorEventList() {
   document.querySelectorAll('.monty-hall__door').forEach(door =>
     door.removeEventListener("click", doorClicked)
   );
 }
-function findSpareGoat() {
-  //Loop through doors and return the doors that have a goat and aren't currently selected
-  let unselectedGoatDoors = [];
+function findSpareEmpty() {
+  //Loop through doors and return the doors that are empty and aren't currently selected
+  let unselectedEmptyDoors = [];
   for (const door in doors) {
-    if (!doors[door].selected && doors[door].prize === 'goat') {
-      unselectedGoatDoors.push(doors[door]);
+    if (!doors[door].selected && doors[door].prize === 'empty') {
+      unselectedEmptyDoors.push(doors[door]);
     }
   }
-  //If there is only one door that has a goat and isn't selected, return it
-  if (unselectedGoatDoors.length == 1) {
-    return unselectedGoatDoors[0]
+  //If there is only one door that is empty and isn't selected, return it
+  if (unselectedEmptyDoors.length == 1) {
+    return unselectedEmptyDoors[0]
   } else {
-    //If there is two doors that have goats and isn't selected, return a random one of those doors
-    return unselectedGoatDoors[(Math.floor(Math.random() * 2))]
+    //If there are two empty doors that aren't selected, return a random one of those doors
+    return unselectedEmptyDoors[(Math.floor(Math.random() * 2))]
   }
 }
 function findSelectedDoor(){
@@ -135,57 +138,70 @@ function swapClicked() {
   //Remove eventlistener from keep and swap doors
   removeKeepSwapEventList()
   //Reveal reset button
-  document.getElementById('monty-hall__btn-con').classList.toggle('monty-hall__hide');
+  document.getElementById('monty-hall__replay-btn-con').classList.toggle('monty-hall__hide');
   for (const door in doors) {
     if (!doors[door].selected && !doors[door].opened && doors[door].prize === 'gold') {
-      document.getElementById('monty-hall__message').innerHTML = `You swapped to the ${doors[door].color} door which has the gold. You win!`
+      document.getElementById('monty-hall__message').innerHTML = `<p>You swapped to the ${doors[door].name} door which has the gold. You&nbsp;win!</p>`
       //Update stats data
       stats.swap.won++;
-      document.getElementById('monty-hall__door--' + doors[door].color).classList.toggle('monty-hall__door--gold')
+      document.getElementById('monty-hall__door--' + doors[door].no).classList.toggle('monty-hall__door--gold')
       document.getElementById('monty-hall__swap').innerHTML = stats.calcWinrate(stats.swap);
-    } else if (!doors[door].selected && !doors[door].opened && doors[door].prize === 'goat') {
-      document.getElementById('monty-hall__message').innerHTML = `You swapped to the ${doors[door].color} door but it has a goat. You lose!`
+    } else if (!doors[door].selected && !doors[door].opened && doors[door].prize === 'empty') {
+      document.getElementById('monty-hall__message').innerHTML = `<p>You swapped to the ${doors[door].name} door but it's empty. You lose!</p>`
       //Update stats data
       stats.swap.lost++;
       document.getElementById('monty-hall__swap').innerHTML = stats.calcWinrate(stats.swap);
       //Open selected door
-      document.getElementById('monty-hall__door--' + doors[door].color).classList.toggle('monty-hall__door--goat')
+      document.getElementById('monty-hall__door--' + doors[door].no).classList.toggle('monty-hall__door--empty')
     }
   }
 }
 function keepClicked() {
   console.log('Keep clicked')
+  doorsUnselectable();
   //Clear keep/swap text
   clearKeepSwapTxt();
   //Remove eventlistener from keep and swap doors
   removeKeepSwapEventList();
   //Reveal reset button
-  document.getElementById('monty-hall__btn-con').classList.toggle('monty-hall__hide');
+  document.getElementById('monty-hall__replay-btn-con').classList.toggle('monty-hall__hide');
   //Does the door the user selected have the gold?
   for (const door in doors) {
     if (doors[door].selected && doors[door].prize === 'gold') {
-      document.getElementById('monty-hall__message').innerHTML = `You kept the ${doors[door].color} door which has the gold. You win!`
+      document.getElementById('monty-hall__message').innerHTML = `<p>You kept the ${doors[door].name} door which has the gold. You&nbsp;win!</p>`
       //Update stats data
       stats.keep.won++;
       document.getElementById('monty-hall__keep').innerHTML = stats.calcWinrate(stats.keep);
       //Open selected door
-      document.getElementById('monty-hall__door--' + doors[door].color).classList.toggle('monty-hall__door--gold')
-    } else if (doors[door].selected && doors[door].prize === 'goat') {
-      document.getElementById('monty-hall__message').innerHTML = `You kept the ${doors[door].color} door but it has a goat. You lose!`
+      document.getElementById('monty-hall__door--' + doors[door].no).classList.toggle('monty-hall__door--gold')
+    } else if (doors[door].selected && doors[door].prize === 'empty') {
+      document.getElementById('monty-hall__message').innerHTML = `<p>You kept the ${doors[door].name} door but it's empty. You&nbsp;lose!</p>`
       //Update stats data
       stats.keep.lost++;
       document.getElementById('monty-hall__keep').innerHTML = stats.calcWinrate(stats.keep);
       //Open selected door
-      document.getElementById('monty-hall__door--' + doors[door].color).classList.toggle('monty-hall__door--goat')
+      document.getElementById('monty-hall__door--' + doors[door].no).classList.toggle('monty-hall__door--empty')
     }
   }
 }
+function doorsUnselectable(){
+  //Take off the currently unselectable door to avoid duplicates
+  document.querySelector('.monty-hall__door--unselectable').classList.toggle('monty-hall__door--unselectable');
+  //Apply unselectable to all doors
+  allDoorsUnselectable()
+}
+function allDoorsUnselectable() {
+  document.querySelectorAll('.monty-hall__door').forEach(door => 
+    door.classList.toggle('monty-hall__door--unselectable')
+  )
+}
+
 function removeKeepSwapEventList() {
   //Remove event listener from selected door
-  document.getElementById(`monty-hall__door--${findSelectedDoor().color}`)
+  document.getElementById(`monty-hall__door--${findSelectedDoor().no}`)
   .removeEventListener("click", keepClicked);
   //Remove event listener from swap door
-  document.getElementById(`monty-hall__door--${findSwapDoor().color}`)
+  document.getElementById(`monty-hall__door--${findSwapDoor().no}`)
   .removeEventListener("click", swapClicked);
 }
 function clearKeepSwapTxt() {
@@ -196,7 +212,7 @@ function clearKeepSwapTxt() {
 function replayClicked() {
   //Reset door data
   for (const door in doors) {
-    doors[door].prize = 'goat';
+    doors[door].prize = 'empty';
     doors[door].opened = false;
     doors[door].selected = false;
   }
@@ -205,16 +221,18 @@ function replayClicked() {
   //Reassign a new gold
   assignGold();
   //Reset door UI
-  document.querySelectorAll('.monty-hall__door--goat').forEach(door =>
-    door.classList.toggle('monty-hall__door--goat')
+  document.querySelectorAll('.monty-hall__door--empty').forEach(door =>
+    door.classList.toggle('monty-hall__door--empty')
   );
+  //Apply unselectable to all doors
+  allDoorsUnselectable()
   if (document.querySelector('.monty-hall__door--gold')) {
     document.querySelector('.monty-hall__door--gold').classList.toggle('monty-hall__door--gold');
   }
   //Reset message
-  document.getElementById('monty-hall__message').textContent = 'Select a door'
+  document.getElementById('monty-hall__message').innerHTML = "<p>Select a door</p>"
   //Hide reset button
-  document.getElementById('monty-hall__btn-con').classList.toggle('monty-hall__hide');
+  document.getElementById('monty-hall__replay-btn-con').classList.toggle('monty-hall__hide');
 }
 
 /*

@@ -17,7 +17,6 @@ body {
 .monty-hall__con * {
   font-family:'Palanquin Dark';
   color:white;
-  text-align:center;
   box-sizing: border-box;
   font-size:20px;
 }
@@ -38,100 +37,62 @@ body {
   font-size:45px;
   line-height: 1.5;
 }
-.monty-hall__door-con {
+.monty-hall__doors-con {
   display:flex;
   justify-content: space-between;
-  max-width:500px;
+  max-width:700px;
   margin: 0 auto;
   width:100%;
 }
-.monty-hall__btn-con button {
-  margin-bottom:20px;
-}
 .monty-hall__door {
-  width:100px;
-  color:white;
+  max-width:200px;
+  position:relative;
   cursor:pointer;
-  height:200px;
-  padding:10px;
-  background-color:blue;
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  border-style: solid;
-  border-width:5px;
+  width:30%;
 }
-.monty-hall__door--red {
-  background-color:red;
-  border-color:red;
+.monty-hall__door svg {
+  width:100%;
 }
-.monty-hall__door--blue {
-  background-color:blue;
-  border-color:blue;
-}
-.monty-hall__door--green {
-  background-color:green;
-  border-color:green;
-}
-.monty-hall__door--goat, .monty-hall__door--gold {
-  background-size:cover;
-  background-position:center;
-  cursor: default;
-}
-.monty-hall__door--goat {
-  background-color:white;
-}
-.monty-hall__door--gold {
-  background-image:url('gold.jpg');
-}
-
-.monty-hall__door--goat .monty-hall__door-handle, .monty-hall__door--gold .monty-hall__door-handle {
+.monty-hall__door #gold {
   display:none;
 }
-.monty-hall__door-handle {
-  background-color:yellow;
-  width:20px;
-  height:20px;
-  border-radius:100%;
+.monty-hall__door-btn-con {
+  position: absolute;
+  top:27%;
+  bottom:0;
+  left:0;
+  right:0;
+  cursor: inherit;
 }
-.monty-hall__door--selectable {
+.monty-hall__door-btn-con button {
+  border-radius:5px;
+  background-color:white;
+  color:#FF4061;
+  border:0;
+  width:75%;
+  cursor: inherit;
+}
+.monty-hall__door.monty-hall__door--gold #gold {
+  display:inline;
+}
+.monty-hall__door--empty #door, .monty-hall__door--gold #door {
+  opacity:0;
+  transition: opacity 1s;
+}
+.monty-hall__door--unselectable {
+  cursor:default;
+}
+.monty-hall__replay-btn-con button {
+  margin-bottom:20px;
   cursor:pointer;
 }
 .monty-hall__win-rates-con, .monty-hall__notes {
   margin-top:20px;
 }
-
-.test-doors-con {
-  width:100%;
-  max-width:600px;
-  justify-content: space-around;
-  display:flex;
-  padding-top:20px;
-}
-.test-door-con {
-  width:25%;
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.test-door-frame {
-  padding: 6% 6% 0 6%;
-  background-color:lightblue;
-  border:black 1px solid;
-  border-bottom:none;
-  margin: 0 5%;
-}
-.test-door {
-  width:98%;
-  padding-bottom:190%;
-  background-color:lightblue;
-  border:black 1px solid;
-  border-bottom:none;
-}
-.test-door-step {
-  padding-bottom:4%;
-  background-color:lightblue;
-  border:black 1px solid;
+@media (max-width:700px) {
+  .monty-hall__door {
+    max-width:150px;
+  }
 }
 
 @media (max-width:500px) {
