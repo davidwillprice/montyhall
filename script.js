@@ -89,9 +89,9 @@ function doorClicked(e) {
   //Remove all the door clicked event listeners
   removeAllDoorEventList();
   //Adjust message to reflect new state
-  document.getElementById('monty-hall__message').innerHTML = `<p>You have selected the ${chosenDoor.color} door.</p> 
-  <p>Monty reveals the ${goatDoor.color} door had a goat.</p>
-  <p>Would you like to keep the ${chosenDoor.color} door or swap to the ${swapDoor.color} door?</p>`
+  document.getElementById('monty-hall__message').innerHTML = `<p>You have selected the ${chosenDoor.color} door.<br>
+  Monty reveals the ${goatDoor.color} door had a goat.<br>
+  Would you like to keep the ${chosenDoor.color} door or swap to the ${swapDoor.color} door?</p>`
 }
 function removeAllDoorEventList() {
   document.querySelectorAll('.monty-hall__door').forEach(door =>
