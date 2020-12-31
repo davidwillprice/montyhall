@@ -73,19 +73,19 @@ body {
   background-color:green;
   border-color:green;
 }
-.monty-hall__door--goat, .monty-hall__door--car {
+.monty-hall__door--goat, .monty-hall__door--gold {
   background-size:cover;
   background-position:center;
   cursor: default;
 }
 .monty-hall__door--goat {
-  background-image:url('goat.jpg');
+  background-color:white;
 }
-.monty-hall__door--car {
-  background-image:url('car.jpg');
+.monty-hall__door--gold {
+  background-image:url('gold.jpg');
 }
 
-.monty-hall__door--goat .monty-hall__door-handle, .monty-hall__door--car .monty-hall__door-handle {
+.monty-hall__door--goat .monty-hall__door-handle, .monty-hall__door--gold .monty-hall__door-handle {
   display:none;
 }
 .monty-hall__door-handle {

@@ -34,8 +34,8 @@ let stats = {
 }
 
 function init() {
-//Assign a car to a random door
-  assignCar();
+//Assign a gold to a random door
+  assignGold();
   //Set event listeners
   addDoorsEventListeners();
   addReplayEventListener();
@@ -50,15 +50,15 @@ function addReplayEventListener() {
   document.getElementById('monty-hall__replay-btn').addEventListener("click", replayClicked);
 }
 
-function assignCar() {
-  //Randomly assign one of the doors a car
+function assignGold() {
+  //Randomly assign one of the doors a gold
   let randomDoorNo = (Math.floor(Math.random() * NoOfDoors)) + 1;
   if (randomDoorNo == 1) {
-    doors.redDoor.prize = 'car';
+    doors.redDoor.prize = 'gold';
   } else if (randomDoorNo == 2) {
-    doors.blueDoor.prize = 'car';
+    doors.blueDoor.prize = 'gold';
   } else {
-    doors.greenDoor.prize = 'car';
+    doors.greenDoor.prize = 'gold';
   }
 }
 
@@ -137,11 +137,11 @@ function swapClicked() {
   //Reveal reset button
   document.getElementById('monty-hall__btn-con').classList.toggle('monty-hall__hide');
   for (const door in doors) {
-    if (!doors[door].selected && !doors[door].opened && doors[door].prize === 'car') {
-      document.getElementById('monty-hall__message').innerHTML = `You swapped to the ${doors[door].color} door which has the car. You win!`
+    if (!doors[door].selected && !doors[door].opened && doors[door].prize === 'gold') {
+      document.getElementById('monty-hall__message').innerHTML = `You swapped to the ${doors[door].color} door which has the gold. You win!`
       //Update stats data
       stats.swap.won++;
-      document.getElementById('monty-hall__door--' + doors[door].color).classList.toggle('monty-hall__door--car')
+      document.getElementById('monty-hall__door--' + doors[door].color).classList.toggle('monty-hall__door--gold')
       document.getElementById('monty-hall__swap').innerHTML = stats.calcWinrate(stats.swap);
     } else if (!doors[door].selected && !doors[door].opened && doors[door].prize === 'goat') {
       document.getElementById('monty-hall__message').innerHTML = `You swapped to the ${doors[door].color} door but it has a goat. You lose!`
@@ -161,15 +161,15 @@ function keepClicked() {
   removeKeepSwapEventList();
   //Reveal reset button
   document.getElementById('monty-hall__btn-con').classList.toggle('monty-hall__hide');
-  //Does the door the user selected have the car?
+  //Does the door the user selected have the gold?
   for (const door in doors) {
-    if (doors[door].selected && doors[door].prize === 'car') {
-      document.getElementById('monty-hall__message').innerHTML = `You kept the ${doors[door].color} door which has the car. You win!`
+    if (doors[door].selected && doors[door].prize === 'gold') {
+      document.getElementById('monty-hall__message').innerHTML = `You kept the ${doors[door].color} door which has the gold. You win!`
       //Update stats data
       stats.keep.won++;
       document.getElementById('monty-hall__keep').innerHTML = stats.calcWinrate(stats.keep);
       //Open selected door
-      document.getElementById('monty-hall__door--' + doors[door].color).classList.toggle('monty-hall__door--car')
+      document.getElementById('monty-hall__door--' + doors[door].color).classList.toggle('monty-hall__door--gold')
     } else if (doors[door].selected && doors[door].prize === 'goat') {
       document.getElementById('monty-hall__message').innerHTML = `You kept the ${doors[door].color} door but it has a goat. You lose!`
       //Update stats data
@@ -202,14 +202,14 @@ function replayClicked() {
   }
   //Readd event listeners 
   addDoorsEventListeners();
-  //Reassign a new car
-  assignCar();
+  //Reassign a new gold
+  assignGold();
   //Reset door UI
   document.querySelectorAll('.monty-hall__door--goat').forEach(door =>
     door.classList.toggle('monty-hall__door--goat')
   );
-  if (document.querySelector('.monty-hall__door--car')) {
-    document.querySelector('.monty-hall__door--car').classList.toggle('monty-hall__door--car');
+  if (document.querySelector('.monty-hall__door--gold')) {
+    document.querySelector('.monty-hall__door--gold').classList.toggle('monty-hall__door--gold');
   }
   //Reset message
   document.getElementById('monty-hall__message').textContent = 'Select a door'
@@ -219,7 +219,7 @@ function replayClicked() {
 
 /*
 Game starts, 3 doors are available to click on
-One door is assigned with the car, the other two with goats
+One door is assigned with the gold, the other two with goats
 User selects a door
 The door with a goat between the other two is revealed
 Ask the user if they want to keep their door or switch
