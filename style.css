@@ -20,9 +20,6 @@ body {
   box-sizing: border-box;
   font-size:20px;
 }
-.monty-hall__con p {
-  margin-top:0;
-}
 .monty-hall__con {
   padding:15px;
   width:100%;
@@ -32,10 +29,26 @@ body {
   justify-content: center;
   text-align:center;
 }
+.monty-hall__con button {
+border:0;
+border-radius:5px;
+cursor:pointer;
+padding:4px 8px;
+}
+.monty-hall__con p {
+  margin-top:0;
+}
 .monty-hall__title {
   margin:0 auto 10px;
   font-size:45px;
   line-height: 1.5;
+}
+.monty-hall__replay-btn-con button {
+  margin-bottom:20px;
+  background-color:#3F84E5;
+  color:white;
+  width:100%;
+  max-width:150px;
 }
 .monty-hall__doors-con {
   display:flex;
@@ -65,10 +78,8 @@ body {
   cursor: inherit;
 }
 .monty-hall__door-btn-con button {
-  border-radius:5px;
   background-color:white;
   color:#FF4061;
-  border:0;
   width:75%;
   cursor: inherit;
 }
@@ -81,10 +92,6 @@ body {
 }
 .monty-hall__door--unselectable {
   cursor:default;
-}
-.monty-hall__replay-btn-con button {
-  margin-bottom:20px;
-  cursor:pointer;
 }
 .monty-hall__win-rates-con, .monty-hall__notes {
   margin-top:20px;
