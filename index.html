@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css" />
+        <title>Monty Hall Paradox</title>
+    </head>
+<body>
+  <div class="monty-hall__con">
+<div class="monty-hall__message" id="monty-hall__message">
+    <p>
+      Select a door
+    </p>
+  </div>
+  
+  <div id="monty-hall__btn-con" class="monty-hall__btn-con monty-hall__hide">
+    <button id="monty-hall__replay-btn">
+      Play again
+    </button>
+  </div>
+  
+  <div class="monty-hall__door-con">
+    <div id="monty-hall__door--red" class="monty-hall__door monty-hall__door--red" data-id="red">
+      <div class="monty-hall__door-btn-con">
+      </div>
+      <div class="monty-hall__door-handle"></div>
+    </div>
+    <div id="monty-hall__door--blue" class="monty-hall__door monty-hall__door--blue" data-id="blue">
+    <div class="monty-hall__door-btn-con">
+      </div>
+      <div class="monty-hall__door-handle"></div>
+    </div>
+    <div id="monty-hall__door--green" class="monty-hall__door monty-hall__door--green" data-id="green">
+    <div class="monty-hall__door-btn-con">
+      </div>
+      <div class="monty-hall__door-handle"></div>
+    </div>
+  </div>
+  
+  <div class="monty-hall__win-rates-con">
+    Win rate when you swapped: <span id="monty-hall__swap">0</span>%<br>
+    Win rate when you don't switch: <span id="monty-hall__keep">0</span>%
+  </div>
+  
+  <div class="monty-hall__notes">
+    The winrate when you swap will work out to ~66%.<br>
+    The winrate when you don't swap will work out to ~33%.
+  </div>
+
+  <!--
+<div class="test-doors-con">
+  <div class="test-door-con">
+  <div class="test-door-frame">
+    <div class="test-door"></div>
+  </div>
+  <div class="test-door-step"></div>
+</div>
+<div class="test-door-con">
+  <div class="test-door-frame">
+    <div class="test-door"></div>
+  </div>
+</div>
+<div class="test-door-con">
+  <div class="test-door-frame">
+    <div class="test-door"></div>
+  </div>
+</div>
+</div>-->
+</div>
+  <script src="script.js"></script>
+</body>
+  </html>

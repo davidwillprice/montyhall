@@ -1,0 +1,109 @@
+
+
+html {
+  background-color:#19115E;
+}
+.monty-hall__con * {
+  font-family:tahoma;
+  color:white;
+}
+.monty-hall__hide {
+  display:none;
+}
+.monty-hall__message {
+  font-size:20px;
+  margin-bottom:20px;
+}
+.monty-hall__btn-con button {
+  margin-bottom:20px;
+}
+.monty-hall__door-con {
+  display:flex;
+}
+.monty-hall__door {
+  width:100px;
+  color:white;
+  cursor:pointer;
+  height:200px;
+  padding:10px;
+  background-color:blue;
+  margin-right:20px;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  border-style: solid;
+  border-width:5px;
+}
+.monty-hall__door--red {
+  background-color:red;
+  border-color:red;
+}
+.monty-hall__door--blue {
+  background-color:blue;
+  border-color:blue;
+}
+.monty-hall__door--green {
+  background-color:green;
+  border-color:green;
+}
+.monty-hall__door--goat, .monty-hall__door--car {
+  background-size:cover;
+  background-position:center;
+  cursor: default;
+}
+.monty-hall__door--goat {
+  background-image:url('goat.jpg');
+}
+.monty-hall__door--car {
+  background-image:url('car.jpg');
+}
+
+.monty-hall__door--goat .monty-hall__door-handle, .monty-hall__door--car .monty-hall__door-handle {
+  display:none;
+}
+.monty-hall__door-handle {
+  background-color:yellow;
+  width:20px;
+  height:20px;
+  border-radius:100%;
+}
+.monty-hall__door--selectable {
+  cursor:pointer;
+}
+.monty-hall__win-rates-con, .monty-hall__notes {
+  margin-top:20px;
+}
+
+.test-doors-con {
+  width:100%;
+  max-width:600px;
+  justify-content: space-around;
+  display:flex;
+  padding-top:20px;
+}
+.test-door-con {
+  width:25%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.test-door-frame {
+  padding: 6% 6% 0 6%;
+  box-sizing: border-box;
+  background-color:lightblue;
+  border:black 1px solid;
+  border-bottom:none;
+  margin: 0 5%;
+}
+.test-door {
+  width:98%;
+  padding-bottom:190%;
+  background-color:lightblue;
+  border:black 1px solid;
+  border-bottom:none;
+}
+.test-door-step {
+  padding-bottom:4%;
+  background-color:lightblue;
+  border:black 1px solid;
+}
