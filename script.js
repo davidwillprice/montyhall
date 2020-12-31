@@ -133,6 +133,7 @@ function findSwapDoor() {
 }
 function swapClicked() {
   console.log('Swap clicked')
+  doorsUnselectable();
   //Clear keep/swap text
   clearKeepSwapTxt();
   //Remove eventlistener from keep and swap doors
