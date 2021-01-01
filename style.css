@@ -63,6 +63,25 @@ padding:4px 8px;
   cursor:pointer;
   width:30%;
 }
+.monty-hall__door:before {
+  content: "";
+  width:100%;
+  background-color:white;
+  opacity:0.2;
+  display:inline-block;
+  position:absolute;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  border-radius:50%;
+  z-index:-1;
+  transform:scale(0.5);
+  transition: transform 0.2s ease-in-out;
+}
+.monty-hall__door:hover:before {
+  transform:scale(1.1)
+}
 .monty-hall__door svg {
   width:100%;
 }
@@ -83,6 +102,10 @@ padding:4px 8px;
   width:75%;
   cursor: inherit;
 }
+.monty-hall__door:hover button {
+  transform:scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
 .monty-hall__door.monty-hall__door--gold #gold {
   display:inline;
 }
@@ -92,6 +115,9 @@ padding:4px 8px;
 }
 .monty-hall__door--unselectable {
   cursor:default;
+}
+.monty-hall__door--unselectable:before {
+  transform:scale(0.5) !important;
 }
 .monty-hall__win-rates-con, .monty-hall__notes {
   margin-top:20px;

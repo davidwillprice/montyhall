@@ -72,7 +72,7 @@ function doorClicked(e) {
   console.log(chosenDoor)
   chosenDoor.selected = true;
   //Add keep text to selected door
-  document.querySelector(`#monty-hall__door--${chosenDoor.no} .monty-hall__door-btn-con`).innerHTML="<button>Keep</button>";
+  document.querySelector(`#monty-hall__door--${chosenDoor.no} .monty-hall__door-btn-con`).innerHTML="<button>Keep?</button>";
   //Add keep event listener to selected door
   document.getElementById(`monty-hall__door--${chosenDoor.no}`).addEventListener("click", keepClicked);
   
@@ -86,7 +86,7 @@ function doorClicked(e) {
   //Find the door you can switch to
   const swapDoor = findSwapDoor();
   //Add keep text to selected door
-  document.querySelector(`#monty-hall__door--${swapDoor.no} .monty-hall__door-btn-con`).innerHTML="<button>Swap</button>";
+  document.querySelector(`#monty-hall__door--${swapDoor.no} .monty-hall__door-btn-con`).innerHTML="<button>Swap?</button>";
   //Add keep event listener to selected door
   document.getElementById(`monty-hall__door--${swapDoor.no}`).addEventListener("click", swapClicked);
 
