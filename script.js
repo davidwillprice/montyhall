@@ -66,13 +66,10 @@ let MHPDataController = (function () {
           unselectedEmptyDoors.push(this.doors[door]);
         }
       }
-      //If there is only one door that is empty and isn't selected, return it
-      if (unselectedEmptyDoors.length == 1) {
-        return unselectedEmptyDoors[0];
-      } else {
-        //If there are two empty doors that aren't selected, return a random one of those doors
-        return unselectedEmptyDoors[Math.floor(Math.random() * 2)];
-      }
+      //Pick a random empty door
+      return unselectedEmptyDoors[
+        Math.floor(Math.random() * unselectedEmptyDoors.length)
+      ];
     },
     setEmptyDoor: function (door) {
       door.opened = true;

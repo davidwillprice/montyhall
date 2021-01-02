@@ -11,7 +11,7 @@ I changed the door's contents from goats and a car to them being empty or having
 
 - [ ] Improve text appearance;
 - [x] Reorganise JS;
-- [ ] Streamline function which selected a spare empty door to open;
+- [x] Streamline function which selected a spare empty door to open;
 - [ ] Change CSS to SASS;
 - [ ] Clearer win/loss stats;
 - [ ] Toggleable explaination of game;
