@@ -41,20 +41,20 @@ body {
   margin-top: 0;
 }
 .monty-hall__title {
-  margin: 0 auto 10px;
+  margin: 0 auto 20px;
   font-size: 45px;
   line-height: 1.5;
 }
-.monty-hall__title,
-.monty-hall__con button {
+.monty-hall__title {
   font-family: "Palanquin Dark";
 }
 .monty-hall__intro-btns-con {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .monty-hall__intro-btns-con button {
   width: 100%;
   max-width: 200px;
+  margin-bottom: 10px;
 }
 .monty-hall__problem-btn {
   background-color: #ff4033;
@@ -66,6 +66,13 @@ body {
   width: 100%;
   opacity: 0.3;
   margin-bottom: 30px;
+}
+.monty-hall__message p,
+.monty-hall__con button,
+.monty-hall__win-rates-con,
+.monty-hall__win-rates-con span {
+  font-size: 20px;
+  font-family: "Palanquin Dark";
 }
 .monty-hall__replay-btn-con button {
   margin-bottom: 20px;
@@ -125,9 +132,9 @@ body {
   color: #ff4061;
   width: 75%;
   cursor: inherit;
-  font-size: 20px;
 }
-.monty-hall__door:hover button {
+.monty-hall__door:hover button,
+.monty-hall__con button:hover {
   transform: scale(1.1);
   transition: transform 0.2s ease-in-out;
 }
