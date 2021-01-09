@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="style.css" />
-        <title>Monty Hall Paradox</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark&display=swap" rel="stylesheet"> 
-    </head>
-<body>
-  <div class="monty-hall__con">
-    <h1 class="monty-hall__title">Monty Hall Problem</h1>
-<div class="monty-hall__message" id="monty-hall__message">
-    <p>
-      Select a door
-    </p>
-  </div>
-  
-  <div id="monty-hall__replay-btn-con" class="monty-hall__replay-btn-con monty-hall__hide">
-    <button id="monty-hall__replay-btn">
-      Play again
-    </button>
-  </div>
-  <div class="monty-hall__doors-con">
-    <div id="monty-hall__door--one" class="monty-hall__door monty-hall__door--one" data-id="One">
-      <svg width="100%" height="100%" viewBox="0 0 192 419" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <title>Monty Hall Paradox</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Palanquin+Dark&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="monty-hall__con">
+      <h1 class="monty-hall__title">Monty Hall Problem</h1>
+      <div class="monty-hall__message" id="monty-hall__message">
+        <p>Select a door</p>
+      </div>
+
+      <div
+        id="monty-hall__replay-btn-con"
+        class="monty-hall__replay-btn-con monty-hall__hide"
+      >
+        <button id="monty-hall__replay-btn">Play again</button>
+      </div>
+      <div class="monty-hall__doors-con">
+        <div
+          id="monty-hall__door--one"
+          class="monty-hall__door monty-hall__door--one"
+          data-id="One"
+        >
+          <!-- prettier-ignore -->
+          <svg width="100%" height="100%" viewBox="0 0 192 419" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
       <g id="door-con" transform="matrix(0.918709,0,0,0.969963,0,0)">
           <rect x="0" y="0" width="208.973" height="431.579" style="fill:none;"/>
           <g transform="matrix(1.08848,0,0,1.03097,-1461.98,-350.742)">
@@ -487,11 +494,15 @@
           </g>
       </g>
   </svg>
-      <div class="monty-hall__door-btn-con">
-      </div>
-    </div>
-    <div id="monty-hall__door--two" class="monty-hall__door monty-hall__door--three" data-id="Two">
-      <svg width="100%" height="100%" viewBox="0 0 192 419" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+          <div class="monty-hall__door-btn-con"></div>
+        </div>
+        <div
+          id="monty-hall__door--two"
+          class="monty-hall__door monty-hall__door--three"
+          data-id="Two"
+        >
+          <!-- prettier-ignore -->
+          <svg width="100%" height="100%" viewBox="0 0 192 419" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
         <g id="door-con" transform="matrix(0.918709,0,0,0.969963,0,0)">
             <rect x="0" y="0" width="208.973" height="431.579" style="fill:none;"/>
             <g transform="matrix(1.08848,0,0,1.03097,-1461.98,-350.742)">
@@ -956,11 +967,15 @@
             </g>
         </g>
     </svg>
-      <div class="monty-hall__door-btn-con">
-      </div>
-    </div>
-  <div id="monty-hall__door--three" class="monty-hall__door monty-hall__door--three" data-id="Three">
-    <svg width="100%" height="100%" viewBox="0 0 192 419" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+          <div class="monty-hall__door-btn-con"></div>
+        </div>
+        <div
+          id="monty-hall__door--three"
+          class="monty-hall__door monty-hall__door--three"
+          data-id="Three"
+        >
+          <!-- prettier-ignore -->
+          <svg width="100%" height="100%" viewBox="0 0 192 419" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
       <g id="door-con" transform="matrix(0.918709,0,0,0.969963,0,0)">
           <rect x="0" y="0" width="208.973" height="431.579" style="fill:none;"/>
           <g transform="matrix(1.08848,0,0,1.03097,-1461.98,-350.742)">
@@ -1425,21 +1440,20 @@
           </g>
       </g>
   </svg>
-    <div class="monty-hall__door-btn-con">
-    </div>
-  </div>
-</div>
-  
-  <div class="monty-hall__win-rates-con">
-    Swap win rate: <span id="monty-hall__swap">0</span>%<br>
-    Keep win rate: <span id="monty-hall__keep">0</span>%
-  </div>
-  
-  <div class="monty-hall__notes">
-    The winrate when you swap will work out to ~66%.<br>
-    The winrate when you don't swap will work out to ~33%.
-  </div>
-  <!--
+          <div class="monty-hall__door-btn-con"></div>
+        </div>
+      </div>
+
+      <div class="monty-hall__win-rates-con">
+        Swap win rate: <span id="monty-hall__swap">0</span>%<br />
+        Keep win rate: <span id="monty-hall__keep">0</span>%
+      </div>
+
+      <div class="monty-hall__notes">
+        The winrate when you swap will work out to ~66%.<br />
+        The winrate when you don't swap will work out to ~33%.
+      </div>
+      <!--
 <div class="test-doors-con">
   <div class="test-door-con">
   <div class="test-door-frame">
@@ -1458,7 +1472,7 @@
   </div>
 </div>
 </div>-->
-</div>
-  <script src="script.js"></script>
-</body>
-  </html>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
