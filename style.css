@@ -1,139 +1,153 @@
 html {
-  background-color:#19115E;
-  height:100%;
-  width:100%;
+  background-color: #19115e;
+  height: 100%;
+  width: 100%;
 }
 body {
-  display:flex;
-  align-content:center;
+  /*display: flex;*/
+  align-content: center;
   align-items: center;
-  height:100%;
-  width:100%;
+  height: 100%;
+  width: 100%;
   margin: 0;
 }
 .monty-hall__hide {
-  display:none;
+  display: none;
 }
 .monty-hall__con * {
-  font-family:'Palanquin Dark';
-  color:white;
+  font-family: tahoma;
+  color: white;
   box-sizing: border-box;
-  font-size:20px;
+  font-size: 16px;
 }
 .monty-hall__con {
-  padding:15px;
-  width:100%;
+  padding: 15px;
+  width: 100%;
   box-sizing: border-box;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align:center;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
 }
 .monty-hall__con button {
-border:0;
-border-radius:5px;
-cursor:pointer;
-padding:4px 8px;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 4px 8px;
 }
 .monty-hall__con p {
-  margin-top:0;
+  margin-top: 0;
 }
 .monty-hall__title {
-  margin:0 auto 10px;
-  font-size:45px;
+  margin: 0 auto 10px;
+  font-size: 45px;
   line-height: 1.5;
 }
+.monty-hall__title,
+.monty-hall__con button {
+  font-family: "Palanquin Dark";
+}
+.monty-hall__con hr {
+  width: 100%;
+  opacity: 0.3;
+  margin-bottom: 30px;
+}
 .monty-hall__replay-btn-con button {
-  margin-bottom:20px;
-  background-color:#3F84E5;
-  color:white;
-  width:100%;
-  max-width:150px;
+  margin-bottom: 20px;
+  background-color: #3f84e5;
+  color: white;
+  width: 100%;
+  max-width: 150px;
 }
 .monty-hall__doors-con {
-  display:flex;
+  display: flex;
   justify-content: space-between;
-  max-width:700px;
+  max-width: 700px;
   margin: 0 auto;
-  width:100%;
+  width: 100%;
 }
 .monty-hall__door {
-  max-width:200px;
-  position:relative;
-  cursor:pointer;
-  width:30%;
+  max-width: 200px;
+  position: relative;
+  cursor: pointer;
+  width: 30%;
 }
 .monty-hall__door:before {
   content: "";
-  width:100%;
-  background-color:white;
-  opacity:0.2;
-  display:inline-block;
-  position:absolute;
-  top:0;
-  right:0;
-  left:0;
-  bottom:0;
-  border-radius:50%;
-  z-index:-1;
-  transform:scale(0.5);
+  width: 100%;
+  background-color: white;
+  opacity: 0.2;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border-radius: 50%;
+  z-index: -1;
+  transform: scale(0.5);
   transition: transform 0.2s ease-in-out;
 }
 .monty-hall__door:hover:before {
-  transform:scale(1.1)
+  transform: scale(1.1);
 }
 .monty-hall__door svg {
-  width:100%;
+  width: 100%;
 }
 .monty-hall__door #gold {
-  display:none;
+  display: none;
 }
 .monty-hall__door-btn-con {
   position: absolute;
-  top:27%;
-  bottom:0;
-  left:0;
-  right:0;
+  top: 27%;
+  bottom: 0;
+  left: 0;
+  right: 0;
   cursor: inherit;
 }
 .monty-hall__door-btn-con button {
-  background-color:white;
-  color:#FF4061;
-  width:75%;
+  background-color: white;
+  color: #ff4061;
+  width: 75%;
   cursor: inherit;
+  font-size: 20px;
 }
 .monty-hall__door:hover button {
-  transform:scale(1.1);
+  transform: scale(1.1);
   transition: transform 0.2s ease-in-out;
 }
 .monty-hall__door.monty-hall__door--gold #gold {
-  display:inline;
+  display: inline;
 }
-.monty-hall__door--empty #door, .monty-hall__door--gold #door {
-  opacity:0;
+.monty-hall__door--empty #door,
+.monty-hall__door--gold #door {
+  opacity: 0;
   transition: opacity 1s;
 }
 .monty-hall__door--unselectable {
-  cursor:default;
+  cursor: default;
 }
 .monty-hall__door--unselectable:before {
-  transform:scale(0.5) !important;
+  transform: scale(0.5) !important;
 }
-.monty-hall__win-rates-con, .monty-hall__notes {
-  margin-top:20px;
+.monty-hall__win-rates-con,
+.monty-hall__notes {
+  margin-top: 20px;
 }
-@media (max-width:700px) {
+@media (max-width: 700px) {
   .monty-hall__door {
-    max-width:150px;
+    max-width: 150px;
   }
 }
 
-@media (max-width:500px) {
+@media (max-width: 500px) {
   .monty-hall__title {
-    font-size:35px;
+    font-size: 35px;
     line-height: 1.3;
   }
   .monty-hall__door-btn-con button {
-    width:90%;
+    width: 90%;
   }
 }
