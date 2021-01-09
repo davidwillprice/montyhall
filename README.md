@@ -9,12 +9,12 @@ I changed the door's contents from goats and a car to them being empty or having
 
 ## Possible future features
 
-- [ ] Improve text appearance;
+- [x] Improve text appearance;
 - [x] Reorganise JS;
 - [x] Streamline function which selected a spare empty door to open;
 - [ ] Change CSS to SASS;
 - [ ] Clearer win/loss stats;
-- [ ] Toggleable explaination of game;
+- [x] Toggleable explaination of game;
 - [ ] Animation for doors opening;
 - [ ] Animation for gold piling up;
 - [ ] Transition for buttons and text appearing/disappearing;
