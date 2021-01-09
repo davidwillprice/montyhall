@@ -13,14 +13,15 @@
   <body>
     <div class="monty-hall__con">
       <h1 class="monty-hall__title">Monty Hall Problem</h1>
-      <p>
-        Imagine you are on a game show, and you are given the choice of three
-        doors. One has gold behind it, the others are empty.<br />You pick a
-        door, say No. 1, and the host, who knows what's behind the doors, opens
-        another door, say No. 3, which is empty. He then says to you, "Do you
-        want to swap to door No. 2?"<br />Is it to your advantage to switch your
-        choice?
-      </p>
+      <div class="monty-hall__intro-btns-con">
+        <button id="monty-hall__problem-btn" class="monty-hall__problem-btn">
+          Problem
+        </button>
+        <button id="monty-hall__explain-btn" class="monty-hall__explain-btn">
+          Explanation
+        </button>
+      </div>
+      <div id="monty-hall__explanation-text"></div>
       <hr />
       <div class="monty-hall__message" id="monty-hall__message">
         <p>Select a door</p>
@@ -1457,11 +1458,6 @@
       <div class="monty-hall__win-rates-con">
         Swap win rate: <span id="monty-hall__swap">0</span>%<br />
         Keep win rate: <span id="monty-hall__keep">0</span>%
-      </div>
-
-      <div class="monty-hall__notes">
-        The winrate when you swap will work out to ~66%.<br />
-        The winrate when you don't swap will work out to ~33%.
       </div>
     </div>
     <script src="script.js"></script>

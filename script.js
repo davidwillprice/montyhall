@@ -140,6 +140,18 @@ let MPHUIController = (function () {
           .classList.toggle("monty-hall__door--gold");
       }
     },
+    problemClicked: function () {
+      document.getElementById(
+        "monty-hall__explanation-text"
+      ).innerHTML = `<p>Imagine you are on a game show, and you are given the choice of three doors. One has gold behind it, the others are empty.<br /><br /> You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 3, which is empty. He then says to you, "Do you want to swap to door No. 2?"<br /><br />Is it to your advantage to swap your door?
+        </p>`;
+    },
+    explainClicked: function () {
+      document.getElementById(
+        "monty-hall__explanation-text"
+      ).innerHTML = `<p>It is to your advantage to swap doors. You have a 2/3 chance of winning if you switch but only 1/3 chance if you keep your door.<br></br> When you first chose a door it only had a 1/3 chance of containing&nbsp;gold.<br></br>There is 2/3 chance the gold is behind one of the other two doors. As the host knowingly removed an empty door (It wasn't by chance), the single remaining door still has a 2/3 chance of having gold.
+        </p>`;
+    },
   };
 })();
 
@@ -330,6 +342,8 @@ let MPHGlobalController = (function (dataCtrl, UICtrl) {
       //Set event listeners
       addDoorsEventListeners();
       addEventListenerById("monty-hall__replay-btn", replayClicked);
+      addEventListenerById("monty-hall__problem-btn", UICtrl.problemClicked);
+      addEventListenerById("monty-hall__explain-btn", UICtrl.explainClicked);
     },
   };
 })(MHPDataController, MPHUIController);

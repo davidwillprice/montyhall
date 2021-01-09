@@ -49,6 +49,19 @@ body {
 .monty-hall__con button {
   font-family: "Palanquin Dark";
 }
+.monty-hall__intro-btns-con {
+  margin-bottom: 20px;
+}
+.monty-hall__intro-btns-con button {
+  width: 100%;
+  max-width: 200px;
+}
+.monty-hall__problem-btn {
+  background-color: #ff4033;
+}
+.monty-hall__explain-btn {
+  background-color: #6dc43e;
+}
 .monty-hall__con hr {
   width: 100%;
   opacity: 0.3;
@@ -132,8 +145,7 @@ body {
 .monty-hall__door--unselectable:before {
   transform: scale(0.5) !important;
 }
-.monty-hall__win-rates-con,
-.monty-hall__notes {
+.monty-hall__win-rates-con {
   margin-top: 20px;
 }
 @media (max-width: 700px) {
